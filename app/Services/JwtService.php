@@ -7,7 +7,12 @@ use Firebase\JWT\Key;
 
 class JwtService
 {
-    private $secret = "SECRET_KEY_KAMU";
+    private $secret;
+
+    public function __construct()
+    {
+        $this->secret = env('JWT_SECRET', 'hogwarts-secret-key-2024');
+    }
 
     public function generate($user)
     {

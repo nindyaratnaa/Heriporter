@@ -1,0 +1,52 @@
+[
+    {
+        "id": "w1",
+        "nama": "Phoenix Feather Wand",
+        "panjang": "11 inci",
+        "bahan_inti": "Bulu Phoenix",
+        "bahan_kayu": "Holly Wood",
+        "fleksibilitas": "Cukup Fleksibel",
+        "deskripsi": "Tongkat yang paling langka dan paling kuat. Cocok untuk penyihir dengan tekad besar dan takdir luar biasa.",
+        "gambar": "Wand 1.png"
+    },
+    {
+        "id": "w2",
+        "nama": "Dragon Heartstring Wand",
+        "panjang": "12.5 inci",
+        "bahan_inti": "Senar Jantung Naga",
+        "bahan_kayu": "Vine Wood",
+        "fleksibilitas": "Keras",
+        "deskripsi": "Tongkat paling kuat dan mampu mempelajari mantra paling kompleks. Cocok untuk penyihir yang ambisius.",
+        "gambar": "Wand 2.png"
+    },
+    {
+        "id": "w3",
+        "nama": "Unicorn Hair Wand",
+        "panjang": "10 inci",
+        "bahan_inti": "Rambut Unicorn",
+        "bahan_kayu": "Willow Wood",
+        "fleksibilitas": "Sangat Fleksibel",
+        "deskripsi": "Tongkat paling setia dan konsisten. Menghasilkan sihir yang paling murni dan jarang berpindah kesetiaan.",
+        "gambar": "Wand 3.png"
+    },
+    {
+        "id": "w4",
+        "nama": "Thestral Tail Hair Wand",
+        "panjang": "13 inci",
+        "bahan_inti": "Rambut Ekor Thestral",
+        "bahan_kayu": "Elder Wood",
+        "fleksibilitas": "Tidak Fleksibel",
+        "deskripsi": "Sangat langka dan sulit dijinakkan. Hanya bisa dikuasai oleh penyihir yang telah melihat kematian.",
+        "gambar": "Wand 4.png"
+    },
+    {
+        "id": "w5",
+        "nama": "Veela Hair Wand",
+        "panjang": "9.5 inci",
+        "bahan_inti": "Rambut Veela",
+        "bahan_kayu": "Rosewood",
+        "fleksibilitas": "Sangat Fleksibel",
+        "deskripsi": "Tongkat yang temperamental namun sangat kuat untuk sihir pesona dan ilusi. Cocok untuk penyihir yang karismatik.",
+        "gambar": "Wand 1.png"
+    }
+]

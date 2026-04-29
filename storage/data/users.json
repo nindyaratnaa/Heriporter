@@ -1,1 +1,68 @@
-[]
+[
+    {
+        "id": "u1",
+        "name": "Hermione Granger",
+        "email": "mione@student.hogwarts.ac.id",
+        "password": "$2y$12$zpYHUwJrNXFNrTM20ywM8uzoN4pNsdFBLxt04J46\/6jhhjb9qqMoy",
+        "role": "student",
+        "level": 5,
+        "xp": 420,
+        "max_xp": 500,
+        "house": "Gryffindor",
+        "wand_id": "w1",
+        "created_at": "2024-09-01T08:00:00",
+        "photo": "uploads\/avatars\/avatar_u1_1777462106.png"
+    },
+    {
+        "id": "g1",
+        "name": "Prof. Snape",
+        "email": "snivellus@hogwarts.ac.id",
+        "password": "$2y$12$zpYHUwJrNXFNrTM20ywM8uzoN4pNsdFBLxt04J46\/6jhhjb9qqMoy",
+        "role": "guru",
+        "level": null,
+        "xp": null,
+        "max_xp": null,
+        "created_at": "2024-08-01T08:00:00"
+    },
+    {
+        "id": "u3_1777463620",
+        "name": "scorpius severus malfoy",
+        "email": "scorpius@student.hogwarts.ac.id",
+        "password": "$2y$12$sm5EQ1XSnkUoHoJtn2lfXear0sj2ZjW46igxpjonwhtvwPG7aWrsm",
+        "role": "student",
+        "level": 1,
+        "xp": 0,
+        "max_xp": 100,
+        "created_at": "2026-04-29T11:53:40+00:00",
+        "house": "Slytherin",
+        "wand_id": "w2",
+        "photo": "uploads\/avatars\/avatar_u3_1777463620_1777464122.png"
+    },
+    {
+        "id": "u4_1777464190",
+        "name": "Tobias Evans Snape",
+        "email": "tobias@student.hogwarts.ac.id",
+        "password": "$2y$12$oKT2o\/WARMsHFZUq3kGYiuYK55LQr8INldKATeq\/93hkBi3UXDgjK",
+        "role": "student",
+        "level": 1,
+        "xp": 0,
+        "max_xp": 100,
+        "created_at": "2026-04-29T12:03:10+00:00",
+        "house": "Ravenclaw",
+        "wand_id": "w5",
+        "photo": "uploads\/avatars\/avatar_u4_1777464190_1777464264.png"
+    },
+    {
+        "id": "u5_1777464919",
+        "name": "Newt Scamander",
+        "email": "newt@student.hogwarts.ac.id",
+        "password": "$2y$12$Q3i9eSP9HHsBTqhJmGfa2.5ieNhu4bbn2U1dB6UF.2TbLj2Awrx5i",
+        "role": "student",
+        "level": 1,
+        "xp": 0,
+        "max_xp": 100,
+        "created_at": "2026-04-29T12:15:19+00:00",
+        "house": "Hufflepuff",
+        "wand_id": "w2"
+    }
+]

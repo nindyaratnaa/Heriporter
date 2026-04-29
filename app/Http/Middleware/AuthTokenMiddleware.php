@@ -1,37 +1,27 @@
 <?php
+// [Nya] Middleware autentikasi session
 
 namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
-use App\Services\JwtService;
 
 class AuthTokenMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  Closure(Request): (Response)  $next
-     */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        $header = $request->header('Authorization');
-
-        if (!$header) {
-            return response()->json(['message' => 'Token required'], 401);
+        if (!session('user_id')) {
+            return redirect()->route('login')->withErrors(['email' => 'Silakan login terlebih dahulu.']);
         }
 
-        $token = str_replace('Bearer ', '', $header);
-
-        try {
-            $decoded = app(JwtService::class)->verify($token);
-
-            // simpan user dari token
-            $request->user = $decoded;
-
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Invalid or expired token'], 401);
+        // Student belum sorting hat → paksa ke sorting hat dulu
+        if (
+            session('user_role') === 'student' &&
+            empty(session('user_house')) &&
+            !$request->routeIs('sorting-hat.*') &&
+            !$request->routeIs('logout')
+        ) {
+            return redirect()->route('sorting-hat.questions');
         }
 
         return $next($request);
