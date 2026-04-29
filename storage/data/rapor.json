@@ -2878,5 +2878,365 @@
         "catatan": "",
         "updated_by": null,
         "updated_at": null
+    },
+    {
+        "id": "r_u7_1777471700_semester1_1777471700",
+        "student_id": "u7_1777471700",
+        "semester": "Semester 1",
+        "mata_pelajaran": [
+            {
+                "nama": "Potion Making",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Snape",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Transfiguration",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. McGonagall",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Herbology",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Sprout",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Defense Against Dark Arts",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Lupin",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Charms",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Flitwick",
+                "keterangan": "-"
+            }
+        ],
+        "catatan": "",
+        "updated_by": null,
+        "updated_at": null
+    },
+    {
+        "id": "r_u7_1777471700_semester2_1777471700",
+        "student_id": "u7_1777471700",
+        "semester": "Semester 2",
+        "mata_pelajaran": [
+            {
+                "nama": "Potion Making",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Snape",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Transfiguration",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. McGonagall",
+                "keterangan": "-"
+            },
+            {
+                "nama": "History of Magic",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Binns",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Astronomy",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Sinistra",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Flying",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Madam Hooch",
+                "keterangan": "-"
+            }
+        ],
+        "catatan": "",
+        "updated_by": null,
+        "updated_at": null
+    },
+    {
+        "id": "r_u7_1777471700_semester3_1777471700",
+        "student_id": "u7_1777471700",
+        "semester": "Semester 3",
+        "mata_pelajaran": [
+            {
+                "nama": "Potion Making",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Snape",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Care of Magical Creatures",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Hagrid",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Divination",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Trelawney",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Arithmancy",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Vector",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Muggle Studies",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Burbage",
+                "keterangan": "-"
+            }
+        ],
+        "catatan": "",
+        "updated_by": null,
+        "updated_at": null
+    },
+    {
+        "id": "r_u7_1777471700_semester4_1777471700",
+        "student_id": "u7_1777471700",
+        "semester": "Semester 4",
+        "mata_pelajaran": [
+            {
+                "nama": "Advanced Potions",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Snape",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Transfiguration",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. McGonagall",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Defense Against Dark Arts",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Moody",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Herbology",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Sprout",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Ancient Runes",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Babbling",
+                "keterangan": "-"
+            }
+        ],
+        "catatan": "",
+        "updated_by": null,
+        "updated_at": null
+    },
+    {
+        "id": "r_u7_1777471700_semester5_1777471700",
+        "student_id": "u7_1777471700",
+        "semester": "Semester 5",
+        "mata_pelajaran": [
+            {
+                "nama": "Advanced Potions",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Snape",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Charms",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Flitwick",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Defense Against Dark Arts",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Umbridge",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Transfiguration",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. McGonagall",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Divination",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Trelawney",
+                "keterangan": "-"
+            }
+        ],
+        "catatan": "",
+        "updated_by": null,
+        "updated_at": null
+    },
+    {
+        "id": "r_u7_1777471700_semester6_1777471700",
+        "student_id": "u7_1777471700",
+        "semester": "Semester 6",
+        "mata_pelajaran": [
+            {
+                "nama": "Advanced Potions",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Slughorn",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Defense Against Dark Arts",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Snape",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Transfiguration",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. McGonagall",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Charms",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Flitwick",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Herbology",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Sprout",
+                "keterangan": "-"
+            }
+        ],
+        "catatan": "",
+        "updated_by": null,
+        "updated_at": null
+    },
+    {
+        "id": "r_u7_1777471700_semester7_1777471700",
+        "student_id": "u7_1777471700",
+        "semester": "Semester 7",
+        "mata_pelajaran": [
+            {
+                "nama": "Mastery of Potions",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Slughorn",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Dark Arts Defense",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Lupin",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Advanced Transfiguration",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. McGonagall",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Magical Theory",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Dumbledore",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Alchemy",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Flamel",
+                "keterangan": "-"
+            }
+        ],
+        "catatan": "",
+        "updated_by": null,
+        "updated_at": null
+    },
+    {
+        "id": "r_u7_1777471700_semester8_1777471700",
+        "student_id": "u7_1777471700",
+        "semester": "Semester 8",
+        "mata_pelajaran": [
+            {
+                "nama": "Mastery of Potions",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Slughorn",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Advanced Charms",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Flitwick",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Magical Law",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Dumbledore",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Healing Magic",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Madam Pomfrey",
+                "keterangan": "-"
+            },
+            {
+                "nama": "Alchemy",
+                "nilai": 0,
+                "nilai_huruf": "-",
+                "guru_pengampu": "Prof. Flamel",
+                "keterangan": "-"
+            }
+        ],
+        "catatan": "",
+        "updated_by": null,
+        "updated_at": null
     }
 ]
