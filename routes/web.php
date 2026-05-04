@@ -56,7 +56,7 @@ Route::middleware(['auth.session', 'role:guru'])->prefix('guru')->name('guru.')-
     Route::post('/potions/{id}/validate', [GuruPotionController::class, 'validate'])->name('potions.validate');
 
     // Raport
-    Route::get('/rapor',           [RaporController::class, 'guruIndex'])->name('rapor');
-    Route::get('/rapor/edit',      [RaporController::class, 'edit'])->name('rapor.edit');
-    Route::put('/rapor/{id}',      [RaporController::class, 'update'])->name('rapor.update');
+    Route::get('/rapor',                              [RaporController::class, 'guruIndex'])->name('rapor');
+    Route::get('/rapor/{student_name}/{semester}',    [RaporController::class, 'edit'])->name('rapor.edit');
+    Route::put('/rapor/{student_name}/{semester}',    [RaporController::class, 'update'])->name('rapor.update');
 });

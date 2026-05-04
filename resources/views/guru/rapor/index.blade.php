@@ -8,35 +8,39 @@
 {{-- Selector Form --}}
 <div class="card-gold" style="padding:24px; margin-bottom:24px; max-width:500px;">
     <div class="gold" style="font-size:13px; font-weight:bold; letter-spacing:1px; margin-bottom:16px;">🔍 PILIH RAPORT</div>
-    <form method="GET" action="{{ route('guru.rapor.edit') }}">
+    <form id="raporForm">
         <div style="margin-bottom:14px;">
-            <label for="student_id" class="form-label">MURID</label>
-            <select name="student_id" id="student_id" class="form-input" required autocomplete="off">
+            <label for="student_select" class="form-label">MURID</label>
+            <select id="student_select" class="form-input" required autocomplete="off">
                 <option value="">-- Pilih Murid --</option>
                 @foreach($students as $s)
-                    <option value="{{ $s['id'] }}">{{ $s['name'] }} ({{ $s['email'] }})</option>
+                    <option value="{{ strtolower(str_replace(' ', '-', $s['name'])) }}">{{ $s['name'] }}</option>
                 @endforeach
             </select>
         </div>
         <div style="margin-bottom:20px;">
-            <label for="semester" class="form-label">SEMESTER</label>
-            <select name="semester" id="semester" class="form-input" required autocomplete="off">
+            <label for="semester_select" class="form-label">SEMESTER</label>
+            <select id="semester_select" class="form-input" required autocomplete="off">
                 <option value="">-- Pilih Semester --</option>
-                <option value="Semester 1">Semester 1</option>
-                <option value="Semester 2">Semester 2</option>
-                <option value="Semester 3">Semester 3</option>
-                <option value="Semester 4">Semester 4</option>
-                <option value="Semester 5">Semester 5</option>
-                <option value="Semester 6">Semester 6</option>
-                <option value="Semester 7">Semester 7</option>
-                <option value="Semester 8">Semester 8</option>
+                @for($i = 1; $i <= 8; $i++)
+                    <option value="{{ $i }}">Semester {{ $i }}</option>
+                @endfor
             </select>
         </div>
-        <button type="submit" class="btn-gold" style="width:100%;">
-            ✏️ BUKA RAPORT
+        <button type="button" onclick="goToRapor()" class="btn-gold" style="width:100%;">
+            📖 BUKA RAPORT
         </button>
     </form>
 </div>
+
+<script>
+function goToRapor() {
+    const name = document.getElementById('student_select').value;
+    const sem  = document.getElementById('semester_select').value;
+    if (!name || !sem) return alert('Pilih murid dan semester terlebih dahulu.');
+    window.location.href = '/guru/rapor/' + name + '/' + sem;
+}
+</script>
 
 {{-- Quick overview table --}}
 <div class="card" style="overflow:hidden; padding:0;">
@@ -88,7 +92,7 @@
                     </td>
                     <td style="display:flex; gap:4px; flex-wrap:wrap;">
                         @for ($i = 1; $i <= 8; $i++)
-                            <a href="{{ route('guru.rapor.edit', ['student_id' => $s['id'], 'semester' => 'Semester ' . $i]) }}" class="btn-outline" style="padding:3px 8px; font-size:10px;">S{{ $i }}</a>
+                            <a href="{{ route('guru.rapor.edit', ['student_name' => strtolower(str_replace(' ', '-', $s['name'])), 'semester' => $i]) }}" class="btn-outline" style="padding:3px 8px; font-size:10px;">S{{ $i }}</a>
                         @endfor
                     </td>
                 </tr>

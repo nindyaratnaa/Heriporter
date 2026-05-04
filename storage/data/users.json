@@ -39,20 +39,6 @@
         "photo": "uploads\/avatars\/avatar_u3_1777463620_1777464122.png"
     },
     {
-        "id": "u4_1777464190",
-        "name": "Tobias Evans Snape",
-        "email": "tobias@student.hogwarts.ac.id",
-        "password": "$2y$12$oKT2o\/WARMsHFZUq3kGYiuYK55LQr8INldKATeq\/93hkBi3UXDgjK",
-        "role": "student",
-        "level": 1,
-        "xp": 0,
-        "max_xp": 100,
-        "created_at": "2026-04-29T12:03:10+00:00",
-        "house": "Ravenclaw",
-        "wand_id": "w5",
-        "photo": "uploads\/avatars\/avatar_u4_1777464190_1777464264.png"
-    },
-    {
         "id": "u5_1777464919",
         "name": "Newt Scamander",
         "email": "newt@student.hogwarts.ac.id",
@@ -64,5 +50,18 @@
         "created_at": "2026-04-29T12:15:19+00:00",
         "house": "Hufflepuff",
         "wand_id": "w2"
+    },
+    {
+        "id": "u5_1777903774",
+        "name": "Luna Lovegood",
+        "email": "luna@student.hogwarts.ac.id",
+        "password": "$2y$12$m1StO6pULUzdaZqQSLAYweZxc9PU4\/v\/jBV5ky0ZhszGMAbYdVd4i",
+        "role": "student",
+        "level": 1,
+        "xp": 0,
+        "max_xp": 100,
+        "house": null,
+        "wand_id": null,
+        "created_at": "2026-05-04T14:09:35+00:00"
     }
 ]

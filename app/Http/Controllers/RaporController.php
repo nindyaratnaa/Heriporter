@@ -140,25 +140,28 @@ class RaporController extends Controller
         return view('guru.rapor.index', compact('students'));
     }
 
-    public function edit(Request $request, JsonService $json)
+    public function edit(Request $request, string $student_name, string $semester, JsonService $json)
     {
-        $studentId = $request->get('student_id');
-        $semester  = $request->get('semester');
-        abort_if(!$studentId || !$semester, 400);
+        $student = collect($json->read('users'))->first(
+            fn($u) => strtolower(str_replace(' ', '-', $u['name'])) === strtolower($student_name) && $u['role'] === 'student'
+        );
+        abort_if(!$student, 404, 'Siswa "' . $student_name . '" tidak ditemukan.');
 
-        $student = collect($json->read('users'))->firstWhere('id', $studentId);
-        abort_if(!$student, 404);
+        $semesterLabel = 'Semester ' . $semester;
+        abort_if(!in_array($semesterLabel, self::SEMESTERS), 404, 'Semester ' . $semester . ' tidak tersedia.');
 
         $rapor = collect($json->read('rapor'))->first(
-            fn($r) => $r['student_id'] === $studentId && $r['semester'] === $semester
+            fn($r) => $r['student_id'] === $student['id'] && $r['semester'] === $semesterLabel
         );
 
         if (!$rapor) {
-            self::generateForStudent($studentId, $json);
+            self::generateForStudent($student['id'], $json);
             $rapor = collect($json->read('rapor'))->first(
-                fn($r) => $r['student_id'] === $studentId && $r['semester'] === $semester
+                fn($r) => $r['student_id'] === $student['id'] && $r['semester'] === $semesterLabel
             );
         }
+
+        abort_if(!$rapor, 404, 'Rapor tidak ditemukan.');
 
         $semesters = self::SEMESTERS;
         $students  = collect($json->read('users'))->where('role', 'student')->values()->all();
@@ -166,25 +169,30 @@ class RaporController extends Controller
         return view('guru.rapor.edit', compact('rapor', 'student', 'semesters', 'students'));
     }
 
-    public function update(Request $request, string $id, JsonService $json)
+    public function update(Request $request, string $student_name, string $semester, JsonService $json)
     {
         $request->validate([
-            'mata_pelajaran'              => 'required|array',
-            'mata_pelajaran.*.nilai'      => 'required|integer|min:0|max:100',
-            'mata_pelajaran.*.keterangan' => 'required|string',
-            'catatan'                     => 'nullable|string',
+            'mata_pelajaran'         => 'required|array',
+            'mata_pelajaran.*.nilai' => 'required|integer|min:0|max:100',
+            'catatan'                => 'nullable|string',
         ]);
 
+        $student = collect($json->read('users'))->first(
+            fn($u) => strtolower(str_replace(' ', '-', $u['name'])) === strtolower($student_name) && $u['role'] === 'student'
+        );
+        abort_if(!$student, 404);
+
+        $semesterLabel = 'Semester ' . $semester;
         $rapors = $json->read('rapor');
-        $rapors = collect($rapors)->map(function ($r) use ($id, $request) {
-            if ($r['id'] === $id) {
+        $rapors = collect($rapors)->map(function ($r) use ($student, $semesterLabel, $request) {
+            if ($r['student_id'] === $student['id'] && $r['semester'] === $semesterLabel) {
                 $mp = $r['mata_pelajaran'];
                 foreach ($request->mata_pelajaran as $i => $input) {
                     if (isset($mp[$i])) {
                         $n = (int) $input['nilai'];
                         $mp[$i]['nilai']      = $n;
                         $mp[$i]['nilai_huruf'] = $n > 0 ? self::nilaiHuruf($n) : '-';
-                        $mp[$i]['keterangan'] = $input['keterangan'];
+                        $mp[$i]['keterangan']  = $n >= 85 ? 'Sangat Baik' : ($n >= 70 ? 'Baik' : ($n >= 55 ? 'Cukup' : ($n > 0 ? 'Kurang' : '-')));
                     }
                 }
                 $r['mata_pelajaran'] = $mp;
@@ -196,6 +204,9 @@ class RaporController extends Controller
         })->all();
 
         $json->write('rapor', $rapors);
-        return redirect()->route('guru.rapor')->with('success', 'Raport berhasil diperbarui.');
+        return redirect()->route('guru.rapor.edit', [
+            'student_name' => $student_name,
+            'semester'     => $semester,
+        ])->with('success', 'Raport ' . $student['name'] . ' Semester ' . $semester . ' berhasil diperbarui.');
     }
 }

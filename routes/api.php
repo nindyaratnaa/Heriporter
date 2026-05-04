@@ -11,26 +11,45 @@ Route::post('/auth/register', [ApiController::class, 'register']);
 // Protected
 Route::middleware(ApiAuthMiddleware::class)->group(function () {
 
-    // Auth
+    // Auth [Khaula]
+    // keduanya
     Route::get('/auth/me', [ApiController::class, 'me']);
 
-    // Users (Guru only) — [Khaula]
-    Route::get('/users',      [ApiController::class, 'users']);
-    Route::get('/users/{id}', [ApiController::class, 'userShow']);
+    //Users [Khaula]
+    //guru only
+    Route::get('/users',                           [ApiController::class, 'users']);
+    Route::get('/users/{student_name}',            [ApiController::class, 'userShow']);
 
-    // Potions — [Nya]
-    Route::get('/potions',                    [ApiController::class, 'potions']);
-    Route::post('/potions',                   [ApiController::class, 'potionStore']);
-    Route::get('/potions/{id}',               [ApiController::class, 'potionShow']);
-    Route::delete('/potions/{id}',            [ApiController::class, 'potionDestroy']);
-    Route::post('/potions/{id}/validate',     [ApiController::class, 'potionValidate']);
+    //Profile [Khaula]
+    //student only
+    Route::delete('/account',                      [ApiController::class, 'deleteAccount']);
 
-    // Inventory — [Sefina]
-    Route::get('/inventory',          [ApiController::class, 'inventory']);
-    Route::delete('/inventory/{id}',  [ApiController::class, 'inventoryDestroy']);
+    //Potions [Nya]
+    //keduanya
+    Route::get('/potions',                         [ApiController::class, 'potions']);
+    Route::get('/potions/{potion_name}',           [ApiController::class, 'potionShow']);
 
-    // Raport — [Adzkia]
-    Route::get('/rapor',          [ApiController::class, 'rapor']);
-    Route::get('/rapor/{id}',     [ApiController::class, 'raporShow']);
-    Route::put('/rapor/{id}',     [ApiController::class, 'raporUpdate']);
+    //student only
+    Route::post('/potions',                        [ApiController::class, 'potionStore']);
+    Route::delete('/potions/{potion_name}',        [ApiController::class, 'potionDestroy']);
+
+    //guru only
+    Route::post('/potions/{potion_name}/validate', [ApiController::class, 'potionValidate']);
+
+    //Inventory [Sefina]
+    //student only
+    Route::get('/inventory',                       [ApiController::class, 'inventory']);
+    Route::delete('/inventory/{potion_name}',      [ApiController::class, 'inventoryDestroy']);
+
+    //Rapor [Adzkia]
+    //keduanya
+    Route::get('/rapor',                           [ApiController::class, 'rapor']);
+
+    //student only
+    Route::get('/rapor/{semester}',                [ApiController::class, 'raporShow']);
+
+    //guru only
+    Route::get('/rapor/{student_name}/{semester}', [ApiController::class, 'raporByNameSemester']);
+    Route::put('/rapor/{student_name}/{semester}', [ApiController::class, 'raporUpdate']);
+    Route::patch('/rapor/{student_name}/{semester}',[ApiController::class, 'raporPatch']);
 });
