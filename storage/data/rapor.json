@@ -6,17 +6,17 @@
         "mata_pelajaran": [
             {
                 "nama": "Potion Making",
-                "nilai": 92,
+                "nilai": 90,
                 "nilai_huruf": "A",
                 "guru_pengampu": "Prof. Snape",
                 "keterangan": "Sangat Baik"
             },
             {
                 "nama": "Transfiguration",
-                "nilai": 82,
-                "nilai_huruf": "B+",
+                "nilai": 85,
+                "nilai_huruf": "A-",
                 "guru_pengampu": "Prof. McGonagall",
-                "keterangan": "Baik"
+                "keterangan": "Sangat Baik"
             },
             {
                 "nama": "Herbology",
@@ -40,9 +40,9 @@
                 "keterangan": "Sangat Baik"
             }
         ],
-        "catatan": "Sangat aktif dan teliti dalahm praktikum.",
+        "catatan": "Siswa menunjukkan perkembangan yang baik.",
         "updated_by": "g1",
-        "updated_at": "2026-05-04T16:31:52+00:00"
+        "updated_at": "2026-05-05T12:10:23+00:00"
     },
     {
         "id": "r_u1_s2",
