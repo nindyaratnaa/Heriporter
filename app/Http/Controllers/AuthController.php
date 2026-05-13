@@ -126,6 +126,7 @@ class AuthController extends Controller
     public function logout()
     {
         session()->flush();
+        session()->regenerate();
         return redirect()->route('login');
     }
 

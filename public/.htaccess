@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # Allow PUT, PATCH, DELETE methods
+    RewriteCond %{REQUEST_METHOD} ^(PUT|PATCH|DELETE)
+    RewriteRule .* - [L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

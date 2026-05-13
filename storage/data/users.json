@@ -63,5 +63,18 @@
         "house": null,
         "wand_id": null,
         "created_at": "2026-05-04T14:09:35+00:00"
+    },
+    {
+        "id": "u6_1777953318",
+        "name": "nindy",
+        "email": "nindy@student.hogwarts.ac.id",
+        "password": "$2y$12$smYpWl4BDQZA0mJPwdtBleIlXS4Lto0g1NYLBV72rng74v6a5dl8a",
+        "role": "student",
+        "level": 1,
+        "xp": 0,
+        "max_xp": 100,
+        "created_at": "2026-05-05T03:55:18+00:00",
+        "house": "Hufflepuff",
+        "wand_id": "w4"
     }
 ]

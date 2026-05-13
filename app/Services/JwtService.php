@@ -21,7 +21,7 @@ class JwtService
             'sub' => $user['id'],
             'role' => $user['role'],
             'iat' => time(),
-            'exp' => time() + 3600 // 1 jam
+            'exp' => time() + 3600
         ];
 
         return JWT::encode($payload, $this->secret, 'HS256');
