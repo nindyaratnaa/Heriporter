@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Middleware\ApiAuthMiddleware;
 
+// Handle OPTIONS preflight
+Route::options('/{any}', fn() => response('', 204))->where('any', '.*');
+
 // Public
 Route::post('/auth/login',    [ApiController::class, 'login']);
 Route::post('/auth/register', [ApiController::class, 'register']);
