@@ -430,6 +430,99 @@ class ApiController extends Controller
         return response()->json(['message' => 'Raport berhasil diperbarui sebagian.']);
     }
 
+    // Sorting Hat
+
+    const SORTING_QUESTIONS = [
+        [
+            'q'    => 'Ketika menghadapi tantangan besar, apa yang paling menggambarkan dirimu?',
+            'opts' => [
+                'a' => ['text' => 'Aku akan berjuang sampai akhir, apapun risikonya.', 'house' => 'Gryffindor'],
+                'b' => ['text' => 'Aku akan mencari cara paling cerdas untuk menyelesaikannya.', 'house' => 'Ravenclaw'],
+                'c' => ['text' => 'Aku akan memastikan semua orang di sekitarku aman terlebih dahulu.', 'house' => 'Hufflepuff'],
+                'd' => ['text' => 'Aku akan menggunakan setiap sumber daya yang ada untuk menang.', 'house' => 'Slytherin'],
+            ],
+        ],
+        [
+            'q'    => 'Apa yang paling kamu hargai dalam hidup?',
+            'opts' => [
+                'a' => ['text' => 'Keberanian dan kehormatan.', 'house' => 'Gryffindor'],
+                'b' => ['text' => 'Pengetahuan dan kebijaksanaan.', 'house' => 'Ravenclaw'],
+                'c' => ['text' => 'Kesetiaan dan kerja keras.', 'house' => 'Hufflepuff'],
+                'd' => ['text' => 'Ambisi dan pencapaian.', 'house' => 'Slytherin'],
+            ],
+        ],
+        [
+            'q'    => 'Teman-temanmu menggambarkanmu sebagai seseorang yang...',
+            'opts' => [
+                'a' => ['text' => 'Berani dan selalu siap membela yang benar.', 'house' => 'Gryffindor'],
+                'b' => ['text' => 'Cerdas dan selalu punya jawaban untuk segalanya.', 'house' => 'Ravenclaw'],
+                'c' => ['text' => 'Baik hati dan bisa diandalkan kapan saja.', 'house' => 'Hufflepuff'],
+                'd' => ['text' => 'Penuh tekad dan tahu cara mencapai tujuan.', 'house' => 'Slytherin'],
+            ],
+        ],
+    ];
+
+    // GET /api/sorting-hat/questions - public
+    public function sortingHatQuestions()
+    {
+        return response()->json(self::SORTING_QUESTIONS);
+    }
+
+    // POST /api/sorting-hat/assign - student only (protected)
+    public function sortingHatAssign(Request $request, JsonService $json)
+    {
+        $this->requireRole($request, 'student');
+        $request->validate(['answers' => 'required|array']);
+
+        $answers = $request->answers;
+        $tally   = ['Gryffindor' => 0, 'Ravenclaw' => 0, 'Hufflepuff' => 0, 'Slytherin' => 0];
+
+        foreach (self::SORTING_QUESTIONS as $i => $q) {
+            $ans = $answers[$i] ?? null;
+            if ($ans && isset($q['opts'][$ans])) {
+                $tally[$q['opts'][$ans]['house']]++;
+            }
+        }
+
+        $max  = max($tally);
+        $top  = array_keys(array_filter($tally, fn($v) => $v === $max));
+        $house = $top[array_rand($top)];
+
+        $wands = $json->read('wands');
+        $wand  = $wands[array_rand($wands)];
+
+        $users = $json->read('users');
+        $users = collect($users)->map(function ($u) use ($house, $wand, $request) {
+            if ($u['id'] === $request->user->sub) {
+                $u['house']   = $house;
+                $u['wand_id'] = $wand['id'];
+            }
+            return $u;
+        })->all();
+        $json->write('users', $users);
+
+        $houseData = [
+            'Gryffindor' => ['trait' => 'Keberanian, Keteguhan, Kehormatan'],
+            'Ravenclaw'  => ['trait' => 'Kecerdasan, Kreativitas, Kebijaksanaan'],
+            'Hufflepuff' => ['trait' => 'Kesetiaan, Kesabaran, Kerja Keras'],
+            'Slytherin'  => ['trait' => 'Ambisi, Kecerdikan, Kepemimpinan'],
+        ];
+
+        return response()->json([
+            'house'      => $house,
+            'house_data' => $houseData[$house],
+            'wand'       => $wand,
+        ]);
+    }
+
+    // GET /api/wands/{wand_id} - protected
+    public function wandShow(Request $request, JsonService $json, string $wand_id)
+    {
+        $wand = collect($json->read('wands'))->firstWhere('id', $wand_id);
+        if (!$wand) return response()->json(['message' => 'Wand tidak ditemukan.'], 404);
+        return response()->json($wand);
+    }
+
     // Helpers
 
     private function safeUser(array $u): array

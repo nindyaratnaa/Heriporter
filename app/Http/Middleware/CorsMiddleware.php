@@ -9,26 +9,28 @@ class CorsMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        $origin = $request->header('Origin');
+        $origin  = $request->header('Origin') ?? '';
         $allowed = ['http://localhost:5173', 'http://127.0.0.1:5173'];
 
-        if (in_array($origin, $allowed)) {
-            if ($request->isMethod('OPTIONS')) {
-                return response('', 204)
-                    ->header('Access-Control-Allow-Origin', $origin)
-                    ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
-                    ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With')
-                    ->header('Access-Control-Allow-Credentials', 'true');
-            }
+        $headers = [
+            'Access-Control-Allow-Origin'      => in_array($origin, $allowed) ? $origin : $allowed[0],
+            'Access-Control-Allow-Methods'     => 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers'     => 'Content-Type, Authorization, X-Requested-With, Accept',
+            'Access-Control-Allow-Credentials' => 'true',
+            'Access-Control-Max-Age'           => '86400',
+        ];
 
-            $response = $next($request);
-            $response->headers->set('Access-Control-Allow-Origin', $origin);
-            $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
-            $response->headers->set('Access-Control-Allow-Credentials', 'true');
-            return $response;
+        // Langsung balas preflight OPTIONS tanpa masuk ke routing
+        if ($request->isMethod('OPTIONS')) {
+            return response('', 204, $headers);
         }
 
-        return $next($request);
+        $response = $next($request);
+
+        foreach ($headers as $key => $value) {
+            $response->headers->set($key, $value);
+        }
+
+        return $response;
     }
 }

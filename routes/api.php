@@ -11,6 +11,10 @@ Route::options('/{any}', fn() => response('', 204))->where('any', '.*');
 Route::post('/auth/login',    [ApiController::class, 'login']);
 Route::post('/auth/register', [ApiController::class, 'register']);
 
+// Sorting Hat (public - pakai token tapi tidak wajib login penuh)
+Route::get('/sorting-hat/questions',  [ApiController::class, 'sortingHatQuestions']);
+Route::middleware(ApiAuthMiddleware::class)->post('/sorting-hat/assign', [ApiController::class, 'sortingHatAssign']);
+
 // Protected
 Route::middleware(ApiAuthMiddleware::class)->group(function () {
 
@@ -26,6 +30,9 @@ Route::middleware(ApiAuthMiddleware::class)->group(function () {
     //Profile [Khaula]
     //student only
     Route::delete('/account',                      [ApiController::class, 'deleteAccount']);
+
+    //Wand
+    Route::get('/wands/{wand_id}',                 [ApiController::class, 'wandShow']);
 
     //Potions [Nya]
     //keduanya

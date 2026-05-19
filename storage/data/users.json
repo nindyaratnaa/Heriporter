@@ -89,5 +89,31 @@
         "house": null,
         "wand_id": null,
         "created_at": "2026-05-05T05:17:49+00:00"
+    },
+    {
+        "id": "u8_1779170038",
+        "name": "Test User",
+        "email": "test@student.hogwarts.ac.id",
+        "password": "$2y$12$7wGOam8xRX9X\/BiSpyBDZ.7MI5Ss15pi8bFO9qxDe4fswRSaOvUJO",
+        "role": "student",
+        "level": 1,
+        "xp": 0,
+        "max_xp": 100,
+        "house": null,
+        "wand_id": null,
+        "created_at": "2026-05-19T05:53:59+00:00"
+    },
+    {
+        "id": "u9_1779170981",
+        "name": "kia",
+        "email": "kia@student.hogwarts.ac.id",
+        "password": "$2y$12$6FeneHRjYE4AJD2cUR8bYOhGDPoYYQD2n7eTOC2Dx\/X.MkKNYxqlq",
+        "role": "student",
+        "level": 1,
+        "xp": 0,
+        "max_xp": 100,
+        "house": "Ravenclaw",
+        "wand_id": "w5",
+        "created_at": "2026-05-19T06:09:42+00:00"
     }
 ]
